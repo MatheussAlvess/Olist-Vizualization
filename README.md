@@ -11,7 +11,7 @@
 ### Foram criadas querys em SQL afim de demosntrar noções da linguagem da mesma forma como foram criados dashboards no Power BI.
 
 <p align="center">
-  <img src="images/i3.jpeg"/>
+  <img src="images/I3.jpeg"/>
 </p>
 
 <p align="center">
