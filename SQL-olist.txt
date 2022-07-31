@@ -1,0 +1,104 @@
+########################################################################
+#1 - AGRUPAMENTO - Em quantos estados o id aparece
+SELECT
+	c.customer_unique_id,
+	COUNT(DISTINCT c.customer_state) 
+FROM customer c
+GROUP BY c.customer_unique_id
+HAVING COUNT(DISTINCT c.customer_state) > 1
+
+#2 - Qual o faturamento por forma de pagamento e por numero de parcelas
+SELECT
+	payment_type AS forma_de_pagamento,
+	payment_installments AS n_parcelas,
+	COUNT(op.order_id) AS transacoes,
+	SUM(op.payment_value) AS faturamento
+FROM order_payments op
+GROUP BY forma_de_pagamento, n_parcelas
+
+########################################################################
+#3 - LÓGICA BOOLEANA - Quantos produtos estão cadastrados nas categorias: perfumaria,
+brinquedos, esporte lazer, cama mesa e banho e móveis de escritório que
+possuem mais de 5 fotos, um peso maior que 5 g, um altura maior que 10 cm,
+uma largura maior que 20 cm?
+
+SELECT
+	product_category_name ,
+	COUNT( DISTINCT product_id )
+FROM products p
+WHERE (product_category_name = 'perfumaria'
+		OR product_category_name = 'brinquedos'
+		OR product_category_name = 'esporte_lazer'
+		OR product_category_name = 'cama_mesa_banho'
+		OR product_category_name = 'moveis_escritorio')
+		AND product_photos_qty > 5
+		AND product_weight_g > 5
+		AND product_height_cm > 10
+		AND product_width_cm > 20
+GROUP BY product_category_name
+
+
+########################################################################
+#5 - INTERVALOS - Numero de pedidos cancelados ou em processamento entre os anos de 2016 a 2017
+
+SELECT
+	order_status,
+	COUNT(order_id) AS pedidos
+FROM orders o
+WHERE (order_status = 'processing' OR order_status = 'canceled')
+AND (o.order_estimated_delivery_date BETWEEN '2016-01-01' AND '2017-12-31')
+GROUP BY order_status
+
+########################################################################
+#6 - CONCATENAÇÃO - Concatenar tabela de pedidos com cidade e estado
+
+SELECT o.customer_id, c.customer_city, c.customer_state 
+FROM orders o 
+INNER JOIN customer c 
+ON o.customer_id = c.customer_id 
+
+########################################################################
+#7 - CRIAÇÃO - Criação de tabelaView
+
+CREATE VIEW VW_PEDIDOS_POR_CLIENTE
+AS 
+
+SELECT o.*, c.customer_city, c.customer_state 
+FROM orders o 
+INNER JOIN customer c 
+ON o.customer_id = c.customer_id 
+
+#8 - Criação de tabela
+
+
+CREATE TABLE dados
+(
+CUSTOMER_ID VARCHAR(150),
+CUSTOMER_UNIQUE_ID VARCHAR(150),
+CUSTOMER_CITY VARCHAR(100),
+CUSTOMER_STATE CHAR(2),
+ORDER_ID VARCHAR(150),
+PRICE FLOAT,
+FREIGHT_VALUE FLOAT,
+PAYMENT_TYPE VARCHAR(50),
+PAYMENT_INSTALLMENTS INT(5),
+PAYMENT_VALUE FLOAT,
+ORDER_STATUS VARCHAR(50),
+ORDER_PURCHASE_TIMESTAMP DATETIME,
+PRODUCT_ID VARCHAR(150),
+PRODUCT_CATEGORY_NAME VARCHAR(150),
+SELLER_ID VARCHAR(150),
+SELLER_CITY VARCHAR(50),
+SELLER_STATE CHAR(2)
+)
+
+INSERT INTO dados
+SELECT c.customer_id, c.customer_unique_id, c.customer_city, c.customer_state,
+	   g.geolocation_lat, g.geolocation_lng,
+	   oi.order_id, oi.price, oi.freight_value,
+	   op.payment_type, op.payment_installments, op.payment_value,
+	   o.order_status, o.order_purchase_timestamp,
+	   p.product_id, p.product_category_name, 
+	   s.seller_id, s.seller_city, s.seller_state
+FROM customer c, geolocation g, order_items oi, order_payments op, orders o, products p, sellers s
+	   
