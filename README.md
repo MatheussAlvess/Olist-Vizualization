@@ -6,3 +6,7 @@
 <p align="center">
   <img src="images/wall.jpg"/>
 </p>
+
+
+### Foram criadas querys em SQL afim de demosntrar noções da linguagem da mesma forma como foram criados dashboards no Power BI.
+
