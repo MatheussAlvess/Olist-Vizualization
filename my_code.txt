@@ -1,3 +1,6 @@
-ola, tudo bem
-
-
+git init para iniciar
+cat > filename.extension para criar o arquivo
+nano filename.extension para editar texto 
+git add "filename.extension" para preparar individual
+git add . para preparar todos
+git commit -m "adicionando uma mensagem do que foi feito" (-m = mensagem)
