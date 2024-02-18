@@ -4,21 +4,21 @@
 - Dataset Link: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 <p align="center">
-  <img src="images/wall.jpg"/>
+  <img src="images/Olist-wallpapper.jpg"/>
 </p>
 
 
 ### Foram criadas querys em SQL afim de demosntrar noções da linguagem da mesma forma como foram criados dashboards no Power BI.
 
 <p align="center">
-  <img src="images/i33.jpeg"/>
+  <img src="images/i1.png"/>
 </p>
 
 <p align="center">
-  <img src="images/I1.jpeg"/>
+  <img src="images/i2.png"/>
 </p>
 
 <p align="center">
-  <img src="images/I2.jpeg"/>
+  <img src="images/i3.png"/>
 </p>
 
