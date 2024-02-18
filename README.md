@@ -4,7 +4,7 @@
 - Dataset Link: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 <p align="center">
-  <img src="images/Olist-wallpapper.jpeg"/>
+  <img src="images/Olist-wallpaper.jpg"/>
 </p>
 
 
