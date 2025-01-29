@@ -1,6 +1,6 @@
-# Visualização Olist (PROJETO EM ANDAMENTO) 
+# Olist Visualization (ONGOING PROJECT)
 
-### Este projeto é um estudo de visualização baseado em dados públicos da Olist fornecidos pela Kaggle. O projeto não pretende propor soluções para a empresa, sendo apenas um objeto de demonstração de habilidades analíticas e visuais.
+### This project is a visualization study based on public data from Olist, provided by Kaggle. The project does not aim to propose solutions for the company but serves as a demonstration of analytical and visual skills.
 - Dataset Link: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 <p align="center">
@@ -8,7 +8,7 @@
 </p>
 
 
-### Foram criadas querys em SQL afim de demosntrar noções da linguagem da mesma forma como foram criados dashboards no Power BI.
+### SQL queries were created to demonstrate knowledge of the language, along with dashboards built in Power BI.
 
 <p align="center">
   <img src="images/i1.png"/>
